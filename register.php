@@ -1,7 +1,7 @@
 <?php
 include("controller.php");
 if(isset($_POST["submit"])){
-    $pwd= password_hash($_POST["password"], PASSWORD_BCRYPT);
+    $pwd = password_hash($_POST['password'], PASSWORD_DEFAULT);
     if(register($_POST['username'],$pwd,$_POST['email'])){
         header("location:login.php");
     }
