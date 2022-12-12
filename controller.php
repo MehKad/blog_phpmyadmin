@@ -25,6 +25,18 @@ function get_data(){
     }
     return false;
 }
+function get_score($username){
+    try{
+        $db = new PDO('mysql:host=localhost;dbname=gidb', 'root', '');
+        $score = $db->prepare("select score from users where username:=username");
+        $score->execute(['username' => $username]);
+        $res = $score->fetch();
+        return $res;
+    }
+    catch(PDOException $e){
+    }
+    return false;
+}
 function register($user, $password, $email)
 {
     try {
@@ -35,6 +47,18 @@ function register($user, $password, $email)
     }
     catch(PDOException $e) {
         echo ($e);
+    }
+    return false;
+}
+function user_data($username){
+    try{
+        $db = new PDO('mysql:host=localhost;dbname=GIDB', 'root', '');
+        $data = $db->prepare("select username,email,score from users where username=:username");
+        $data->execute(["username" => $username]);
+        $res = $data->fetch();
+        return $res;
+    }
+    catch(PDOException $e){
     }
     return false;
 }

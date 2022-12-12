@@ -4,6 +4,7 @@ include("controller.php");
 if (isset($_POST["submit"])) {
     if (login($_POST["username"], $_POST['password'])) {
         $_SESSION["username"] = $_POST["username"];
+        $_SESSION["score"] = get_score($_POST["username"]);
         header("location:index.php");
     } else {
         echo "fill the data first";

@@ -3,39 +3,59 @@
   padding: 0;
 }
 body {
-  background-image: linear-gradient(to right, orange, blue);
   user-select: none;
+  margin: auto;
+  font-family: "Times New Roman", Times, serif;
+  overflow: auto;
+  background: linear-gradient(
+    315deg,
+    red 3%,
+    green 38%,
+    blue 68%,
+    purple 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 #container {
-  margin: auto;
-  width: 70vw;
-  margin-top: 10vh;
-  background-color: wheat;
-  border-radius: 50px;
-  height: 80vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20vh;
+}
+#game {
+  box-shadow: 2px 2px 100px black;
+  width: 40vw;
+  background-color: rgba(245, 222, 179, 0.63);
+  border-radius: 50px;
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
 }
 .us,
 #buttons {
-  width: 23vw;
-  height: 80vh;
-  border-radius: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  position: relative;
-}
-.uname {
   text-align: center;
 }
+
 .btn {
-  border: 2px solid black;
-  background-color: rgba(128, 128, 128, 0.441);
   width: fit-content;
   text-align: center;
   cursor: pointer;
-  margin: auto;
 }
 .rand {
   color: red;
@@ -44,40 +64,43 @@ body {
   text-align: center;
 }
 .sc {
-  position: absolute;
-  background-color: red;
-  border: 2px solid black;
-  box-shadow: 5px 5px 5px black;
-  width: 50px;
   text-align: center;
-  color: white;
   font-size: xx-large;
-  left: 40%;
-  top: 80%;
 }
 #image {
   display: none;
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  border-radius: 20px;
-  box-shadow: 2px 2px 5px green;
 }
-h1 {
-  text-align: center;
-  padding: 10px;
+
+/* table */
+#usr {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  margin: 10px;
+  border-radius: 6px;
 }
 table {
   border-collapse: collapse;
-  font-family: "Times New Roman", Times, serif;
+  border-radius: 6px;
+  overflow: hidden;
   margin: auto;
 }
-td,
-th {
-  border: 1px solid black;
-  text-align: justify;
+td,th {
+  border: 2px solid black;
+  text-align: center;
   padding: 8px;
 }
-tr:nth-child(even) {
-  background-color: wheat;
+
+#user{
+  box-shadow: 2px 2px 100px black;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.63);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  border-radius: 10px;
+}
+h2{
+  position: absolute;
+  top: 35%;
+  left: 28%;
 }
